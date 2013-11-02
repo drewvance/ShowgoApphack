@@ -17,5 +17,15 @@ public class ShowgoServer {
 		return rv;
 	}
 	
-	
+	public static ArrayList<Band> GetBands(int eventId) {
+		ArrayList<Band> rv = new ArrayList<Band>();
+		
+		Band band = new Band();
+		band.ArtUrl = "";
+		band.Name = "";
+		band.TrackStreamURL = "";
+		
+		rv.add(band);
+		return rv;
+	}
 }

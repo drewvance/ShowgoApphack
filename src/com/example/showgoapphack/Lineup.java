@@ -1,7 +1,10 @@
 package com.example.showgoapphack;
 
-import android.os.Bundle;
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 
 public class Lineup extends Activity {
@@ -10,6 +13,11 @@ public class Lineup extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lineup);
+		
+		Intent intent = getIntent();
+        String message = intent.getStringExtra("EVENTID");
+        
+        ArrayList<Band> bands = ShowgoServer.GetBands(1);
 	}
 
 	@Override

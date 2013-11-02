@@ -11,7 +11,9 @@ public class ShowgoServer {
 		foo.Long = lowBoundLong + ((upBoundLong - lowBoundLong)/2);
 		foo.Lat = lowBoundLat + ((upBoundLat - lowBoundLat)/2);
 		foo.VenueName = "foo";
+		foo.Id = 1;
 		rv.add(foo);
+		
 		return rv;
 	}
 	

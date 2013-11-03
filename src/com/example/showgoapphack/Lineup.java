@@ -24,8 +24,7 @@ public class Lineup extends Activity {
 		setContentView(R.layout.activity_lineup);
 		
 		Intent intent = getIntent();
-        String message = intent.getStringExtra(Map.EVENT_ID);
-        int id = Integer.parseInt(message);
+        Integer id = intent.getIntExtra(Map.EVENT_ID, 0);
         bands = ShowgoServer.GetBands(id);
         
         String venueName = intent.getStringExtra(Map.VENUE_NAME);

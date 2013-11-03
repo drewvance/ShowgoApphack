@@ -28,16 +28,15 @@ public class Lineup extends Activity {
         int id = Integer.parseInt(message);
         bands = ShowgoServer.GetBands(id);
         
+        String venueName = intent.getStringExtra("REPLACE ME");
+        TextView txtVenue = (TextView)findViewById(R.id.venuename);
+        txtVenue.setText(venueName);
         
         TextView bandname0 = (TextView)findViewById(R.id.band0);
         Button button0 = (Button)findViewById(R.id.play0);  
         if (bands.size() > 0) {
         	Band band0 = bands.get(0);
-        	if (band0.ArtUrl != null && band0.ArtUrl != "") {
-        	URL url = new URL(band0.ArtUrl);
-			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-			imageView.setImageBitmap(bmp);
-        	}
+        	
         	bandname0.setText(band0.Name);
         	if (band0.TrackStreamURL == null || band0.TrackStreamURL == "") {
         		button0.setVisibility(View.GONE);
@@ -52,11 +51,7 @@ public class Lineup extends Activity {
         Button button1 = (Button)findViewById(R.id.play1);  
         if (bands.size() > 1) {
         	Band band1 = bands.get(1);
-        	if (band1.ArtUrl != null && band1.ArtUrl != "") {
-        	URL url = new URL(band1.ArtUrl);
-			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-			imageView.setImageBitmap(bmp);
-			}
+        	
         	bandname1.setText(band1.Name);
         	if (band1.TrackStreamURL == null || band1.TrackStreamURL == "") {
         		button1.setVisibility(View.GONE);
@@ -71,11 +66,7 @@ public class Lineup extends Activity {
         Button button2 = (Button)findViewById(R.id.play2);  
         if (bands.size() > 2) {
         	Band band2 = bands.get(2);
-        	if (band2.ArtUrl != null && band2.ArtUrl != "") {
-        	URL url = new URL(band2.ArtUrl);
-			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-			imageView.setImageBitmap(bmp);
-			}
+        	
         	bandname2.setText(band2.Name);
         	if (band2.TrackStreamURL == null || band2.TrackStreamURL == "") {
         		button2.setVisibility(View.GONE);
@@ -90,11 +81,7 @@ public class Lineup extends Activity {
         Button button3 = (Button)findViewById(R.id.play3);  
         if (bands.size() > 3) {
         	Band band3 = bands.get(3);
-        	if (band3.ArtUrl != null && band3.ArtUrl != "") {
-        	URL url = new URL(band3.ArtUrl);
-			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-			imageView.setImageBitmap(bmp);
-			}
+        	
         	bandname3.setText(band3.Name);
         	if (band3.TrackStreamURL == null || band3.TrackStreamURL == "") {
         		button3.setVisibility(View.GONE);
@@ -109,11 +96,7 @@ public class Lineup extends Activity {
         Button button4 = (Button)findViewById(R.id.play4);  
         if (bands.size() > 4) {
         	Band band4 = bands.get(4);
-        	if (band4.ArtUrl != null && band4.ArtUrl != "") {
-        	URL url = new URL(band4.ArtUrl);
-			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-			imageView.setImageBitmap(bmp);
-			}
+        	
         	bandname4.setText(band4.Name);
         	if (band4.TrackStreamURL == null || band4.TrackStreamURL == "") {
         		button4.setVisibility(View.GONE);

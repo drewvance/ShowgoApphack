@@ -41,10 +41,10 @@
         </activity>
         <meta-data
 		    android:name="com.google.android.maps.v2.API_KEY"
-		    android:value="PLACE_KEY_HERE"/>
+		    android:value="AIzaSyD0ACPN3ox598rPN4ANR_6preHRmwGWiU8"/>
         <meta-data
 		    android:name="com.google.android.gms.version"
-		    android:value="3265130" />
+    android:value="3265130" />
     </application>
 
 </manifest>

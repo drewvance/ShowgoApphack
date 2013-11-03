@@ -101,6 +101,9 @@ public class Lineup extends Activity {
         Button button4 = (Button)findViewById(R.id.play4);  
         if (bands.size() > 4) {
         	Band band4 = bands.get(4);
+        	URL url = new URL(band4.ArtUrl);
+			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+			imageView.setImageBitmap(bmp);
         	bandname4.setText(band4.Name);
         	if (band4.TrackStreamURL == null || band4.TrackStreamURL == "") {
         		button4.setVisibility(View.GONE);

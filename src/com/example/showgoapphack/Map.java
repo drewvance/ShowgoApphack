@@ -1,11 +1,17 @@
 package com.example.showgoapphack;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
 public class Map extends Activity {
+    GoogleMap googleMap;
 
+    LatLng myPosition;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -9,8 +9,21 @@
     tools:context=".Map" >
 
     <TextView
+        android:id="@+id/venuename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/play0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/venuename"
+        android:layout_below="@+id/venuename"
+        android:layout_marginTop="33dp"
+        android:text="showLayout"
+        android:onClick="showLayout" />
+    
+
 
 </RelativeLayout>

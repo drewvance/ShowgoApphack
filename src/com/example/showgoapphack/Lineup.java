@@ -33,6 +33,9 @@ public class Lineup extends Activity {
         Button button0 = (Button)findViewById(R.id.play0);  
         if (bands.size() > 0) {
         	Band band0 = bands.get(0);
+        	URL url = new URL(band0.ArtUrl);
+			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+			imageView.setImageBitmap(bmp);
         	bandname0.setText(band0.Name);
         	if (band0.TrackStreamURL == null || band0.TrackStreamURL == "") {
         		button0.setVisibility(View.GONE);
@@ -47,6 +50,9 @@ public class Lineup extends Activity {
         Button button1 = (Button)findViewById(R.id.play1);  
         if (bands.size() > 1) {
         	Band band1 = bands.get(1);
+        	URL url = new URL(band1.ArtUrl);
+			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+			imageView.setImageBitmap(bmp);
         	bandname1.setText(band1.Name);
         	if (band1.TrackStreamURL == null || band1.TrackStreamURL == "") {
         		button1.setVisibility(View.GONE);
@@ -61,6 +67,9 @@ public class Lineup extends Activity {
         Button button2 = (Button)findViewById(R.id.play2);  
         if (bands.size() > 2) {
         	Band band2 = bands.get(2);
+        	URL url = new URL(band2.ArtUrl);
+			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+			imageView.setImageBitmap(bmp);
         	bandname2.setText(band2.Name);
         	if (band2.TrackStreamURL == null || band2.TrackStreamURL == "") {
         		button2.setVisibility(View.GONE);
@@ -75,6 +84,9 @@ public class Lineup extends Activity {
         Button button3 = (Button)findViewById(R.id.play3);  
         if (bands.size() > 3) {
         	Band band3 = bands.get(3);
+        	URL url = new URL(band3.ArtUrl);
+			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+			imageView.setImageBitmap(bmp);
         	bandname3.setText(band3.Name);
         	if (band3.TrackStreamURL == null || band3.TrackStreamURL == "") {
         		button3.setVisibility(View.GONE);

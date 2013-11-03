@@ -28,7 +28,7 @@ public class Lineup extends Activity {
         int id = Integer.parseInt(message);
         bands = ShowgoServer.GetBands(id);
         
-        String venueName = intent.getStringExtra("REPLACE ME");
+        String venueName = intent.getStringExtra(Map.VENUE_NAME);
         TextView txtVenue = (TextView)findViewById(R.id.venuename);
         if (venueName == null ||venueName == "") {
         	txtVenue.setText(venueName);

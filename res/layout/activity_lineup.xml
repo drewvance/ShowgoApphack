@@ -40,7 +40,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:onClick="onPlay0"
-		        android:text="▶" />
+		        android:text="Play" />
     </TableRow>
     
     <TableRow
@@ -61,7 +61,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:onClick="onPlay1"
-	        android:text="▶" />
+	        android:text="Play" />
     </TableRow>
 
     <TableRow
@@ -82,7 +82,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:onClick="onPlay2"
-	        android:text="▶" />
+	        android:text="Play" />
 
 	</TableRow>
 
@@ -104,7 +104,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:onClick="onPlay3"
-	        android:text="▶" />
+	        android:text="Play" />
 	</TableRow>
 
     <TableRow
@@ -125,7 +125,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:onClick="onPlay4"
-	        android:text="▶" />
+	        android:text="Play" />
 
 	</TableRow>
 </TableLayout>

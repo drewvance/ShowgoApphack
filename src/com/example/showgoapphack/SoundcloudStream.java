@@ -20,20 +20,22 @@ import android.os.AsyncTask;
 
 
 public class SoundcloudStream {
+	private static Boolean isPlaying = false;
 	private static String SC_ACCESS = "4145e2efb28073e23d005b4f392fca73";
-	
-	public void StartStream(String trackName, Context context) throws ClientProtocolException, IOException, URISyntaxException, InterruptedException, ExecutionException {
+	private static MediaPlayer mediaPlayer = new MediaPlayer();
+	public static void StartStream(String trackName, Context context) throws ClientProtocolException, IOException, URISyntaxException, InterruptedException, ExecutionException {
 				
 		String sUri =  trackName + "/stream/?consumer_key=" + SC_ACCESS;
 		HttpClient client = new DefaultHttpClient();
 		Uri uri = Uri.parse(sUri);
 		
-		MediaPlayer mediaPlayer = new MediaPlayer();
+		mediaPlayer = new MediaPlayer();
 		mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 		try {
 			mediaPlayer.setDataSource(context, uri);
 			mediaPlayer.prepare(); // might take long! (for buffering, etc)
 			mediaPlayer.start();
+			isPlaying = true;
 			
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
@@ -48,6 +50,15 @@ public class SoundcloudStream {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static void StopStream() {
+		mediaPlayer.stop();
+		isPlaying = false;
+	}
+	
+	public static Boolean IsPlaying() {
+		return isPlaying;
 	}
 	
 }

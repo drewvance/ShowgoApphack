@@ -30,7 +30,12 @@ public class Lineup extends Activity {
         
         String venueName = intent.getStringExtra("REPLACE ME");
         TextView txtVenue = (TextView)findViewById(R.id.venuename);
-        txtVenue.setText(venueName);
+        if (venueName == null ||venueName == "") {
+        	txtVenue.setText(venueName);
+        } else { 
+        	txtVenue.setText(venueName);	
+        }
+        
         
         TextView bandname0 = (TextView)findViewById(R.id.band0);
         Button button0 = (Button)findViewById(R.id.play0);  

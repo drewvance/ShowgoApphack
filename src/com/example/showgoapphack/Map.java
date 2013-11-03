@@ -1,9 +1,28 @@
 package com.example.showgoapphack;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
+import java.util.ArrayList;
+import java.util.ListIterator;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnCameraChangeListener;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -21,10 +40,69 @@ public class Map extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
 		
-		// TODO: replace with map;
-		Intent intent = new Intent(this, Lineup.class);
-    	intent.putExtra(EVENT_ID, "1");
-    	startActivity(intent);
+        MapFragment fm = (MapFragment)getFragmentManager().findFragmentById(R.id.map);
+
+        // Getting GoogleMap object from the fragment
+        googleMap = fm.getMap();
+
+        // Enabling MyLocation Layer of Google Map
+        googleMap.setMyLocationEnabled(true);
+
+        // Getting LocationManager object from System Service LOCATION_SERVICE
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        // Creating a criteria object to retrieve provider
+        Criteria criteria = new Criteria();
+
+        // Getting the name of the best provider
+        String provider = locationManager.getBestProvider(criteria, true);
+
+        // Getting Current Location
+        Location location = locationManager.getLastKnownLocation(provider);
+
+        if(location!=null){
+                // Getting latitude of the current location
+                double latitude = location.getLatitude();
+        
+                // Getting longitude of the current location
+                double longitude = location.getLongitude();
+        
+                // Creating a LatLng object for the current location
+                LatLng latLng = new LatLng(latitude, longitude);
+                
+                CameraUpdate center =
+                    CameraUpdateFactory.newLatLng(latLng);
+                    CameraUpdate zoom = CameraUpdateFactory.zoomTo(10);
+
+                googleMap.moveCamera(center);
+                googleMap.animateCamera(zoom);
+                
+                googleMap.setOnCameraChangeListener(new OnCameraChangeListener() {
+					
+					@Override
+					public void onCameraChange(CameraPosition position) {
+						// TODO Auto-generated method stub
+		                LatLngBounds mapBoundary = googleMap.getProjection().getVisibleRegion().latLngBounds;
+		                //ArrayList<Event> events =  ShowgoServer.GetEvents(mapBoundary.northeast.latitude, mapBoundary.southwest.longitude, mapBoundary.southwest.latitude, mapBoundary.northeast.longitude);
+		                
+		                ArrayList<Event> events =  ShowgoServer.GetEvents(48.00, -121.00, 46.00, -123);
+		                
+		                ListIterator eventsItr  = events.listIterator();
+		                    
+		                //googleMap.clear();
+		                   
+		                while(eventsItr.hasNext()){
+		                 	Event event = (Event)eventsItr.next();
+		                 	googleMap.addMarker(new MarkerOptions().position(new LatLng(event.Lat, event.Long)).title(event.VenueName));
+		                }
+					}
+                });
+        }
+		
+        
+		//Intent intent = new Intent(this, Lineup.class);
+    	//intent.putExtra(EVENT_ID, "1");
+    	//startActivity(intent);
 	}
 
 	@Override

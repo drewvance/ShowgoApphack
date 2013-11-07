@@ -94,7 +94,7 @@ public class Map extends Activity {
 		                
 		                ListIterator eventsItr  = events.listIterator();
 		                    
-		                googleMap.clear();
+		                //googleMap.clear();
 		                   
 		                while(eventsItr.hasNext()){
 		                	Event event = (Event)eventsItr.next();
